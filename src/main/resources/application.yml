@@ -1,0 +1,15 @@
+
+#spring:
+#
+#  datasource:
+#    initialization-mode: always
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/prueba1
+#    username: postgres
+#    password: Postgresql
+#    data:
+#    jpa:
+#      repositories.enabled: true
+#      show-sql: true
+#      hibernate:
+#        ddl_auto: create-drop
