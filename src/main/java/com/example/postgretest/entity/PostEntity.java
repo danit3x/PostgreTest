@@ -1,8 +1,10 @@
 package com.example.postgretest.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -14,17 +16,24 @@ public class PostEntity {
     private Long id;
 
     @Column(name = "title", unique = true, nullable = false)
-    private String Title;
+    private String title;
 
     @Column(name = "content", nullable = false)
-    private String Content;
+    private String content;
 
     @Column(name = "image")
-    private String Img;
+    private String img;
 
-    private String Category;
+    private String category;
 
-    private String CreationDate;
+    @Column(name = "createdAt")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date creationDateTime;
+    @PrePersist
+    private void onCreate(){
+        creationDateTime = new Date();
+    }
 
-    private String UserId;
+    private String userId;
 }
